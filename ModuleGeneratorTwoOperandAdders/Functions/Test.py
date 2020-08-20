@@ -6,8 +6,8 @@ def AdderGenerator(AdderType, InBits):
         f.write(fullAdder)
         InB1=str(InBits-1)
         InB2=str(InBits-2)
-        myAdder="module MyAdder(output ["+InB1+":0] sum, output cout, input ["+InB1+":0] a, b);\n\n   wire ["+InB1+":1] c;\n FA fa0(sum[" \
+        RippleCarry="module RippleCarry(output ["+InB1+":0] sum, output cout, input ["+InB1+":0] a, b);\n\n   wire ["+InB1+":1] c;\n FA fa0(sum[" \
                 "0], c[1], a[0], b[0], 0);\n  FA fa["+InB2+":1](sum["+InB2+":1], c["+InB1+":2], a["+InB2+":1], b["+InB2+":1], c["+InB2+":1]);\n  FA fa31(sum[" \
                 ""+InB1+"], cout, a["+InB1+"], b["+InB1+"], c["+InB1+"]);\n\n   endmodule "
-        f.write(myAdder)
+        f.write(RippleCarry)
 
