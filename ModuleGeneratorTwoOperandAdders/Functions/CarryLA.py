@@ -4,9 +4,9 @@ def CarryLookAhead(b):
     CarryLA = "module CLA(output [" + inbit1 + ":0] sum, output cout, input [" + inbit1 + ":0] a, b);\n\n"
     CarryLA += "   wire [" + inbit1 + ":0] g, p, c;\n   wire [" + str((b * (b + 1)) / 2 - 1) + ":0] e;\n    wire cin;\n     buf #(1) (cin, 0);\n\n      "
     for i in range(b):
-        CarryLA += "and #(1) (e[" + str(i * (i + 1) / 2) + "], cin, "
+        CarryLA += "and #(1) (e[" + str(i * (i + 1) / 2) + "], cin"
         for j in range(i + 1):
-            CarryLA += "p[" + str(j) + "]"
+            CarryLA += ", p[" + str(j) + "]"
         CarryLA += ");\n"
         for k in range(i):
             CarryLA += "  and #(1) (e[" + str((i * (i + 1) / 2) + 1) + "], g[" + str(k) + "]"
