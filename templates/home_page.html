@@ -40,14 +40,15 @@
 </nav>
 </div>
 <div class="col col-md-4">
-    <form>
+    <form method="post">
+        {% csrf_token %}
   <div class="form-group">
     <label for="exampleFormControlInput1">Email address</label>
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" id="exampleFormControlSelect1" name="SelectTypeOfAdder">
       <option>Carry Ripple Adder</option>
       <option>Carry Select Adder</option>
       <option>Carry Skip Adder</option>
@@ -57,8 +58,9 @@
   </div>
   <div class="form-group">
     <label for="Digit">Digit</label>
-    <input type="number" class="form-control" id="Digit" placeholder="Digit bit">
+    <input type="number" class="form-control" id="Digit" placeholder="Digit bit" name="DigitOfAdder">
   </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">submit</button>
 </form>
 </div>
 <div class="col col-md-4"></div>

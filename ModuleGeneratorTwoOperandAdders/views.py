@@ -6,7 +6,8 @@ def home_page(request):
     if request.method == "GET":
         return render(request, "../templates/home_page.html")
     elif request.method == "POST":
-
+        print(request.POST.get("SelectTypeOfAdder"))
+        print(request.POST.get("DigitOfAdder"))
         return render(request, "../templates/home_page.html")
 
 
