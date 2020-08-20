@@ -3,7 +3,11 @@ from django.http import HttpResponse
 
 
 def home_page(request):
-    return render(request, "../templates/home_page.html")
+    if request.method == "GET":
+        return render(request, "../templates/home_page.html")
+    elif request.method == "POST":
+
+        return render(request, "../templates/home_page.html")
 
 
 
