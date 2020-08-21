@@ -14,11 +14,11 @@ def home_page(request):
 
     elif request.method == "POST":
         if request.POST.get("SelectTypeOfAdder") == "Carry Look Aheaed Adder":
-            CarryLookAhead(int(request.POST.get("DigitOfAdder")))
+            CarryLookAhead(int(request.POST.get("DigitOfAdder")), str(request.POST.get("FilePath")))
         elif request.POST.get("SelectTypeOfAdder") == "Carry Ripple Adder":
-            RippleCarry(int(request.POST.get("DigitOfAdder")))
+            RippleCarry(int(request.POST.get("DigitOfAdder")), str(request.POST.get("FilePath")))
         elif request.POST.get("SelectTypeOfAdder") == "Carry Select Adder":
-            CarrySelect(int(request.POST.get("DigitOfAdder")))
+            CarrySelect(int(request.POST.get("DigitOfAdder")), str(request.POST.get("FilePath")))
 
         return render(request, "../templates/home_page.html")
 

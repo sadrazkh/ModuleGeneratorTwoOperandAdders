@@ -1,7 +1,12 @@
-def RippleCarry(InBits):
+def RippleCarry(InBits, path):
     fullAdder = "module FA(output sum, cout, input a, b, cin);\nwire w0, w1, w2;\n\nxor  (w0, a, b);\nxor  (sum, w0, " \
                 "cin);\n\nand  (w1, w0, cin);\nand  (w2, a, b);\n  or  (cout, w1, w2);\nendmodule "
-    fileName = "RippleCarry_" + str(InBits) + ".v"
+    fileName = ""
+    if path != "None":
+        fileName = str(path) + "RippleCarry_" + str(InBits) + ".v"
+    else:
+        fileName = "RippleCarry_" + str(InBits) + ".v"
+
     f = open(fileName, "a")
     f.write(fullAdder)
     InB1=str(InBits-1)

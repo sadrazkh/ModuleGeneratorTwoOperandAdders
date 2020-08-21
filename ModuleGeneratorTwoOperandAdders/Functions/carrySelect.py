@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def CarrySelect(InBits):
+def CarrySelect(InBits, path):
     fullAdder = "module FA(output sum, cout, input a, b, cin);\nwire w0, w1, w2;\n\nxor  (w0, a, b);\nxor  (sum, w0, " \
                 "cin);\n\nand  (w1, w0, cin);\nand  (w2, a, b);\n  or  (cout, w1, w2);\nendmodule "
 
@@ -21,7 +21,11 @@ def CarrySelect(InBits):
                                "sum1,c2,a,b,1);\n  m21 muxs[InB1:0](sum,sum0,sum1,cin);\n  m21 coutmux(cout,c1,c2," \
                                "cin);\n\n  endmodule "
 
-    fileName = "CarrySelect_Adder" + str(InBits) + ".v"
+    if path != "None":
+        fileName = str(path) + "CarrySelect_Adder" + str(InBits) + ".v"
+    else:
+        fileName = "CarrySelect_Adder" + str(InBits) + ".v"
+
     f = open(fileName, "a")
     f.write(fullAdder)
     f.write(Mux2to1)
