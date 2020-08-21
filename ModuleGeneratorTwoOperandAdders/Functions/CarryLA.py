@@ -21,6 +21,9 @@ def CarryLookAhead(b):
     CarryLA += "xor #(2) (sum[0],p[0],cin);"
     CarryLA += "xor #(2) x[:1](sum[" + inbit1 + ":1],p[" + inbit1 + ":1],c[" + str(b - 2) + ":0]);\n    buf #(1) (cout, c[" + inbit1 + "]);\n     PGGen pggen[" + inbit1 + ":0](g[" + inbit1 + ":0],p[" + inbit1 + ":0],a[" + inbit1 + ":0],b[" + inbit1 + ":0]);\n  endmodule"
 
-    n = open("CarryLA_Adder.v", "a")
+    fileName = "CarryLA_Adder" + str(b) + ".v"
+    n = open(fileName, "a")
     n.write(pggen)
     n.write(CarryLA)
+    n.close()
+    print("cary La")
